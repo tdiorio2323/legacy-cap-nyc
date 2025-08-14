@@ -1,12 +1,29 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import Header from '@/components/Header';
+import HeroSection from '@/components/HeroSection';
+import ServicesSection from '@/components/ServicesSection';
+import ProcessSection from '@/components/ProcessSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
+import FundingCalculator from '@/components/FundingCalculator';
 
 const Index = () => {
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Header onCalculatorOpen={() => setIsCalculatorOpen(true)} />
+      <HeroSection onCalculatorOpen={() => setIsCalculatorOpen(true)} />
+      <ServicesSection />
+      <ProcessSection />
+      <TestimonialsSection />
+      <ContactSection />
+      <Footer />
+      <FundingCalculator 
+        isOpen={isCalculatorOpen} 
+        onClose={() => setIsCalculatorOpen(false)} 
+      />
     </div>
   );
 };
