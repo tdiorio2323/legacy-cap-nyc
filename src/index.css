@@ -25,21 +25,28 @@
     --muted: 0 0% 10%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 45 100% 51%;
+    --accent: 45 72% 51%;
     --accent-foreground: 0 0% 3%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 15%;
-    --input: 0 0% 12%;
-    --ring: 45 100% 51%;
+    --input: 0 0% 8%;
+    --ring: 45 72% 51%;
+
+    /* Premium gold palette */
+    --gold-primary: 45 72% 51%;
+    --gold-dark: 43 65% 35%;
+    --gold-light: 45 85% 65%;
+    --gold-muted: 45 50% 25%;
 
     /* Premium gradients */
     --gradient-primary: linear-gradient(135deg, hsl(0 0% 3%), hsl(0 0% 8%));
-    --gradient-gold: linear-gradient(135deg, hsl(45 100% 51%), hsl(45 100% 61%));
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 3%) 0%, hsl(0 0% 6%) 50%, hsl(0 0% 3%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 72% 51%), hsl(43 65% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 3%) 0%, hsl(45 72% 51% / 0.1) 50%, hsl(0 0% 3%) 100%);
     --gradient-card: linear-gradient(135deg, hsl(0 0% 6%) 0%, hsl(0 0% 9%) 100%);
+    --gradient-gold-shimmer: linear-gradient(45deg, transparent 30%, hsl(45 72% 51% / 0.3) 50%, transparent 70%);
     
     /* Glass morphism */
     --glass-bg: hsla(0, 0%, 100%, 0.05);
@@ -48,13 +55,14 @@
     
     /* Premium shadows */
     --shadow-premium: 0 20px 25px -5px hsla(0, 0%, 0%, 0.5), 0 10px 10px -5px hsla(0, 0%, 0%, 0.04);
-    --shadow-gold: 0 10px 30px -10px hsla(45, 100%, 51%, 0.3);
+    --shadow-gold: 0 10px 30px -10px hsla(45, 72%, 51%, 0.4);
+    --shadow-gold-glow: 0 0 20px hsla(45, 72%, 51%, 0.3), 0 0 40px hsla(45, 72%, 51%, 0.2);
     
     /* Typography scale */
     --font-display: 'Playfair Display', serif;
     --font-sans: 'Inter', -apple-system, sans-serif;
 
-    --radius: 0.5rem;
+    --radius: 8px;
 
     --sidebar-background: 0 0% 98%;
 
@@ -125,11 +133,17 @@
 @layer components {
   /* Premium button variants */
   .btn-hero {
-    @apply bg-gradient-to-r from-accent to-accent/90 text-accent-foreground font-semibold px-8 py-4 rounded-lg shadow-[var(--shadow-gold)] hover:shadow-[var(--shadow-premium)] transition-all duration-300 hover:scale-105;
+    background: var(--gradient-gold);
+    @apply text-accent-foreground font-semibold px-8 py-4 rounded-lg shadow-[var(--shadow-gold)] hover:shadow-[var(--shadow-gold-glow)] transition-all duration-300 hover:scale-[1.02] hover:brightness-110;
   }
   
   .btn-outline-premium {
-    @apply border-2 border-accent text-accent bg-transparent font-semibold px-8 py-4 rounded-lg hover:bg-accent hover:text-accent-foreground transition-all duration-300;
+    @apply border-2 border-accent text-accent bg-transparent font-semibold px-8 py-4 rounded-lg hover:bg-accent hover:text-accent-foreground hover:shadow-[var(--shadow-gold)] transition-all duration-300;
+  }
+  
+  .btn-form {
+    background: var(--gradient-gold);
+    @apply text-accent-foreground font-medium px-6 py-3 rounded-lg shadow-[var(--shadow-gold)] hover:shadow-[var(--shadow-gold-glow)] transition-all duration-300 hover:scale-[1.02];
   }
   
   /* Glass morphism effects */
@@ -154,9 +168,24 @@
     background-clip: text;
   }
   
+  /* Form styling */
+  .form-premium {
+    @apply bg-secondary/80 border border-accent/30 rounded-lg backdrop-blur-sm;
+  }
+  
+  .input-premium {
+    @apply bg-background/50 border-0 border-b-2 border-muted-foreground/30 text-foreground rounded-none px-0 py-3 focus:border-accent focus:ring-0 transition-colors duration-300;
+  }
+  
   /* Animations */
   .animate-float {
     animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-shimmer {
+    background: var(--gradient-gold-shimmer);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
   }
   
   @keyframes float {
@@ -164,12 +193,26 @@
     50% { transform: translateY(-20px); }
   }
   
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
   .animate-fadeIn {
     animation: fadeIn 0.8s ease-out forwards;
   }
   
+  .animate-slideUp {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
     to { opacity: 1; transform: translateY(0); }
   }
 }

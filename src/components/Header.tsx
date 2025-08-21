@@ -77,14 +77,14 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
               variant="outline"
               size="sm"
               onClick={onCalculatorOpen}
-              className="btn-outline-premium"
             >
               <Calculator className="w-4 h-4 mr-2" />
               Calculator
             </Button>
             <Button
+              variant="premium"
+              size="sm"
               onClick={() => scrollToSection('hero')}
-              className="btn-hero"
             >
               <Phone className="w-4 h-4 mr-2" />
               Get Funded
@@ -131,7 +131,7 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
               <div className="pt-4 border-t border-border/50 space-y-3">
                 <Button
                   variant="outline"
-                  className="w-full btn-outline-premium"
+                  className="w-full"
                   onClick={() => {
                     onCalculatorOpen();
                     setIsMenuOpen(false);
@@ -141,7 +141,8 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
                   Funding Calculator
                 </Button>
                 <Button
-                  className="w-full btn-hero"
+                  variant="premium"
+                  className="w-full"
                   onClick={() => {
                     scrollToSection('hero');
                     setIsMenuOpen(false);

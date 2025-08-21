@@ -14,7 +14,7 @@ export default {
 			center: true,
 			padding: '2rem',
 			screens: {
-				'2xl': '1400px'
+				'2xl': '1200px'
 			}
 		},
 		extend: {
@@ -27,10 +27,12 @@ export default {
 				'gradient-gold': 'var(--gradient-gold)',
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-card': 'var(--gradient-card)',
+				'gradient-gold-shimmer': 'var(--gradient-gold-shimmer)',
 			},
 			boxShadow: {
 				'premium': 'var(--shadow-premium)',
 				'gold': 'var(--shadow-gold)',
+				'gold-glow': 'var(--shadow-gold-glow)',
 				'glass': 'var(--glass-shadow)',
 			},
 			colors: {
