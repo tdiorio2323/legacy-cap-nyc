@@ -34,13 +34,11 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-gold rounded-lg flex items-center justify-center">
-              <span className="text-black font-bold text-xl">L</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-display font-bold text-primary">Legacy Capital</h1>
-              <p className="text-xs text-accent font-medium">NYC</p>
-            </div>
+            <img 
+              src="/lovable-uploads/ac3ec563-6bc5-407a-9761-af39543d6a93.png" 
+              alt="Legacy Capital NYC Logo" 
+              className="h-12 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}

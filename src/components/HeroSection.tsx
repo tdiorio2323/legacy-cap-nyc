@@ -45,8 +45,8 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
                 <br />
                 Funding in <span className="text-accent">24 Hours</span>
               </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
-                Skip the banks. Get up to <strong className="text-foreground">$500,000</strong> in working capital 
+              <p className="text-xl lg:text-2xl text-white leading-relaxed">
+                Skip the banks. Get up to <strong className="text-white">$500,000</strong> in working capital 
                 with transparent terms, no hidden fees, and same-day approvals.
               </p>
             </div>
