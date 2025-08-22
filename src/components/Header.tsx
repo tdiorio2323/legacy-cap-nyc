@@ -37,7 +37,7 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
             <img 
               src="/lovable-uploads/ac3ec563-6bc5-407a-9761-af39543d6a93.png" 
               alt="Legacy Capital NYC Logo" 
-              className="h-12 w-auto"
+              className="h-42 w-auto"
             />
           </div>
 
