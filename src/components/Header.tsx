@@ -109,45 +109,45 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 glass backdrop-blur-xl border-t border-border/50">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-gradient-gold border-t-2 border-accent shadow-gold">
             <div className="container mx-auto px-6 py-6 space-y-4">
               <button
                 onClick={() => {
                   window.location.href = '/';
                   setIsMenuOpen(false);
                 }}
-                className="block w-full text-left text-foreground hover:text-accent transition-colors py-2"
+                className="block w-full text-left text-white font-semibold hover:text-black/80 transition-colors py-3"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection('services')}
-                className="block w-full text-left text-foreground hover:text-accent transition-colors py-2"
+                className="block w-full text-left text-white font-semibold hover:text-black/80 transition-colors py-3"
               >
                 Services
               </button>
               <button
                 onClick={() => scrollToSection('process')}
-                className="block w-full text-left text-foreground hover:text-accent transition-colors py-2"
+                className="block w-full text-left text-white font-semibold hover:text-black/80 transition-colors py-3"
               >
                 Process
               </button>
               <button
                 onClick={() => scrollToSection('testimonials')}
-                className="block w-full text-left text-foreground hover:text-accent transition-colors py-2"
+                className="block w-full text-left text-white font-semibold hover:text-black/80 transition-colors py-3"
               >
                 Reviews
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="block w-full text-left text-foreground hover:text-accent transition-colors py-2"
+                className="block w-full text-left text-white font-semibold hover:text-black/80 transition-colors py-3"
               >
                 Contact
               </button>
-              <div className="pt-4 border-t border-border/50 space-y-3">
+              <div className="pt-4 border-t border-white/30 space-y-3">
                 <Button
                   variant="outline"
-                  className="w-full"
+                  className="w-full bg-white text-black border-white hover:bg-black/10"
                   onClick={() => {
                     onCalculatorOpen();
                     setIsMenuOpen(false);
@@ -157,8 +157,8 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
                   Funding Calculator
                 </Button>
                 <Button
-                  variant="premium"
-                  className="w-full"
+                  variant="outline"
+                  className="w-full bg-white text-black border-white hover:bg-black/10"
                   onClick={() => {
                     scrollToSection('hero');
                     setIsMenuOpen(false);
