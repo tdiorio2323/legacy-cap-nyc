@@ -1,0 +1,821 @@
+{
+  "meta": {
+    "project": "legacycapny.com",
+    "generatedAt": "2025-10-04T00:20:40.883Z"
+  },
+  "totals": {
+    "files": 89,
+    "brokenLinks": 4,
+    "emptyOrPlaceholderPages": 0,
+    "accessibility": 1,
+    "seo": 183,
+    "performance": 0,
+    "security": 1,
+    "ux": 1,
+    "codeHygiene": 4,
+    "brandConsistency": 0
+  },
+  "errors": [],
+  "warnings": [],
+  "passes": [],
+  "findings": {
+    "brokenLinks": [
+      {
+        "url": "/src/main.tsx",
+        "scope": "internal",
+        "note": "Target not found in repo (heuristic)"
+      },
+      {
+        "url": "https://fonts.googleapis.com",
+        "scope": "external",
+        "status": "ERR",
+        "note": "fetch failed"
+      },
+      {
+        "url": "https://fonts.gstatic.com",
+        "scope": "external",
+        "status": "ERR",
+        "note": "fetch failed"
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap",
+        "scope": "external",
+        "status": "ERR",
+        "note": "fetch failed"
+      }
+    ],
+    "emptyOrPlaceholderPages": [],
+    "accessibility": [
+      {
+        "file": "src/components/TestimonialsSection.tsx",
+        "issue": "<img> missing or empty alt"
+      }
+    ],
+    "seo": [
+      {
+        "file": "src/App.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/App.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/App.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ContactSection.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ContactSection.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ContactSection.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/Footer.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/Footer.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/Footer.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/FundingCalculator.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/FundingCalculator.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/FundingCalculator.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/Header.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/Header.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/Header.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/HeroSection.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/HeroSection.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/HeroSection.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ProcessSection.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ProcessSection.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ProcessSection.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ServicesSection.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ServicesSection.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ServicesSection.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/TestimonialsSection.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/TestimonialsSection.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/TestimonialsSection.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/accordion.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/accordion.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/accordion.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/alert-dialog.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/alert-dialog.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/alert-dialog.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/alert.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/alert.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/alert.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/aspect-ratio.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/aspect-ratio.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/aspect-ratio.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/avatar.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/avatar.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/avatar.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/badge.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/badge.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/badge.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/breadcrumb.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/breadcrumb.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/breadcrumb.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/button.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/button.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/button.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/calendar.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/calendar.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/calendar.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/card.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/card.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/card.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/carousel.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/carousel.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/carousel.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/chart.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/chart.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/chart.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/checkbox.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/checkbox.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/checkbox.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/collapsible.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/collapsible.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/collapsible.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/command.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/command.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/command.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/context-menu.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/context-menu.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/context-menu.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/dialog.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/dialog.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/dialog.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/drawer.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/drawer.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/drawer.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/dropdown-menu.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/dropdown-menu.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/dropdown-menu.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/form.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/form.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/form.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/hover-card.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/hover-card.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/hover-card.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/input-otp.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/input-otp.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/input-otp.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/input.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/input.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/input.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/label.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/label.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/label.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/menubar.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/menubar.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/menubar.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/navigation-menu.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/navigation-menu.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/navigation-menu.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/pagination.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/pagination.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/pagination.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/popover.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/popover.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/popover.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/progress.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/progress.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/progress.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/radio-group.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/radio-group.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/radio-group.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/resizable.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/resizable.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/resizable.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/scroll-area.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/scroll-area.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/scroll-area.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/select.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/select.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/select.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/separator.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/separator.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/separator.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/sheet.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/sheet.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/sheet.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/sidebar.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/sidebar.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/sidebar.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/skeleton.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/skeleton.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/skeleton.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/slider.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/slider.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/slider.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/sonner.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/sonner.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/sonner.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/switch.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/switch.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/switch.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/table.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/table.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/table.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/tabs.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/tabs.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/tabs.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/textarea.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/textarea.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/textarea.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/toast.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/toast.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/toast.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/toaster.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/toaster.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/toaster.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/toggle-group.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/toggle-group.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/toggle-group.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/toggle.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/toggle.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/toggle.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/components/ui/tooltip.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/components/ui/tooltip.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/components/ui/tooltip.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/hooks/use-mobile.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/hooks/use-mobile.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/hooks/use-mobile.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/main.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/main.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/main.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/pages/Index.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/pages/Index.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/pages/Index.tsx",
+        "issue": "No Open Graph tags"
+      },
+      {
+        "file": "src/pages/NotFound.tsx",
+        "issue": "Missing <title>"
+      },
+      {
+        "file": "src/pages/NotFound.tsx",
+        "issue": "Missing meta description"
+      },
+      {
+        "file": "src/pages/NotFound.tsx",
+        "issue": "No Open Graph tags"
+      }
+    ],
+    "performance": [],
+    "security": [
+      {
+        "file": "tools/site-audit/audit.js",
+        "issue": "Possible secret in source"
+      }
+    ],
+    "ux": [
+      {
+        "file": "src/components/Footer.tsx",
+        "issue": "Anchor with href=\"#\""
+      }
+    ],
+    "codeHygiene": [
+      {
+        "file": "src/components/ContactSection.tsx",
+        "issue": "Debug statements present"
+      },
+      {
+        "file": "src/components/HeroSection.tsx",
+        "issue": "Debug statements present"
+      },
+      {
+        "file": "tools/site-audit/audit.js",
+        "issue": "Debug statements present"
+      },
+      {
+        "file": "tools/site-audit/audit.js",
+        "issue": "ESLint disabled inline"
+      }
+    ],
+    "brandConsistency": []
+  }
+}
