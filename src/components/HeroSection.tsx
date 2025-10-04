@@ -92,22 +92,19 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-accent/20">
               <div className="text-center">
-                <div className="text-3xl lg:text-4xl font-display font-bold text-gradient-gold flex items-center justify-center gap-2">
-                  <DollarSign className="w-6 h-6 text-accent" />
+                <div className="text-3xl lg:text-4xl font-display font-bold text-gradient-gold flex items-center justify-center">
                   $2.5B+
                 </div>
                 <div className="text-sm text-muted-foreground">Funded</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl lg:text-4xl font-display font-bold text-gradient-gold flex items-center justify-center gap-2">
-                  <Shield className="w-6 h-6 text-accent" />
+                <div className="text-3xl lg:text-4xl font-display font-bold text-gradient-gold flex items-center justify-center">
                   15K+
                 </div>
                 <div className="text-sm text-muted-foreground">Businesses</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl lg:text-4xl font-display font-bold text-gradient-gold flex items-center justify-center gap-2">
-                  <Clock className="w-6 h-6 text-accent" />
+                <div className="text-3xl lg:text-4xl font-display font-bold text-gradient-gold flex items-center justify-center">
                   24hrs
                 </div>
                 <div className="text-sm text-muted-foreground">Avg. Approval</div>
