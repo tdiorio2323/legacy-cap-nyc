@@ -61,7 +61,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Email Us</h4>
-                    <p className="text-lg text-accent mb-1">funding@legacycapnyc.com</p>
+                    <p className="text-lg text-accent mb-1">info@legacycapnyc.com</p>
                     <p className="text-sm text-muted-foreground">
                       Get a response within 1 hour
                     </p>
@@ -74,12 +74,9 @@ const ContactSection = () => {
                     <MapPin className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Visit Our Office</h4>
-                    <p className="text-accent mb-1">1 Wall Street, Suite 2000</p>
-                    <p className="text-accent">New York, NY 10005</p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      By appointment only
-                    </p>
+                    <h4 className="font-semibold mb-1">Headquarters</h4>
+                    <p className="text-accent mb-1">90 Broad Street</p>
+                    <p className="text-accent">New York, NY 10004</p>
                   </div>
                 </div>
 
@@ -106,7 +103,7 @@ const ContactSection = () => {
                 <Phone className="w-5 h-5 mr-2" />
                 Call Now for Instant Pre-Approval
               </Button>
-              <Button variant="outline" className="w-full btn-outline-premium text-lg py-6">
+              <Button variant="premium" className="w-full text-lg py-6">
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Start Live Chat
               </Button>

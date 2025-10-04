@@ -9,10 +9,12 @@ const Footer = () => {
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-gold rounded-lg flex items-center justify-center">
-                <span className="text-black font-bold text-xl">L</span>
-              </div>
+            <div className="flex items-center space-x-3 mb-6">
+              <img
+                src="/lcglogo.avif"
+                alt="Legacy Capital NYC logo"
+                className="h-12 w-auto rounded-md shadow-sm"
+              />
               <div>
                 <h3 className="text-xl font-display font-bold text-primary">Legacy Capital</h3>
                 <p className="text-sm text-accent font-medium">NYC</p>
@@ -31,26 +33,20 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-accent" />
-                <span className="text-foreground">funding@legacycapnyc.com</span>
+                <span className="text-foreground">info@legacycapnyc.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="w-4 h-4 text-accent" />
-                <span className="text-foreground">1 Wall Street, Suite 2000, New York, NY 10005</span>
+                <span className="text-foreground">90 Broad Street, New York, NY 10004</span>
               </div>
             </div>
 
             {/* Social Links */}
             <div className="flex space-x-4 mt-6">
-              <a href="#" className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center hover:bg-accent/20 transition-colors">
-                <Facebook className="w-5 h-5 text-accent" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center hover:bg-accent/20 transition-colors">
-                <Twitter className="w-5 h-5 text-accent" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center hover:bg-accent/20 transition-colors">
+              <a href="https://www.linkedin.com/company/legacy-capital-group-inc" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center hover:bg-accent/20 transition-colors">
                 <Linkedin className="w-5 h-5 text-accent" />
               </a>
-              <a href="#" className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center hover:bg-accent/20 transition-colors">
+              <a href="https://www.instagram.com/legacycapnyc/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center hover:bg-accent/20 transition-colors">
                 <Instagram className="w-5 h-5 text-accent" />
               </a>
             </div>

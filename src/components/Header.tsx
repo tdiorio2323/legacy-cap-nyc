@@ -27,24 +27,31 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'glass backdrop-blur-xl' : 'bg-transparent'
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      isScrolled ? 'glass backdrop-blur-xl' : 'bg-background/80 backdrop-blur-sm border-b border-border/20'
     }`}>
       <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-gold rounded-lg flex items-center justify-center">
-              <span className="text-black font-bold text-xl">L</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-display font-bold text-primary">Legacy Capital</h1>
-              <p className="text-xs text-accent font-medium">NYC</p>
-            </div>
-          </div>
+        {/* Logo - Centered at Top (3x larger) */}
+        <div className="flex justify-center mb-6">
+          <button onClick={() => window.location.href = '/'} className="group" aria-label="Legacy Capital NYC home">
+            <img
+              src="/lcglogo.avif"
+              alt="Legacy Capital NYC logo"
+              className="h-36 w-auto rounded-md shadow-sm transition-transform duration-200 group-hover:scale-[1.02] cursor-pointer"
+            />
+          </button>
+        </div>
 
-          {/* Desktop Navigation */}
+        {/* Centered Navigation Bar */}
+        <div className="flex items-center justify-center gap-8">
+          {/* Desktop Navigation - Centered */}
           <div className="hidden md:flex items-center space-x-8">
+            <button
+              onClick={() => window.location.href = '/'}
+              className="text-foreground hover:text-accent transition-colors"
+            >
+              Home
+            </button>
             <button
               onClick={() => scrollToSection('services')}
               className="text-foreground hover:text-accent transition-colors"
@@ -71,10 +78,10 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
             </button>
           </div>
 
-          {/* Desktop CTAs */}
+          {/* Desktop CTAs - All Gold Filled */}
           <div className="hidden md:flex items-center space-x-4">
             <Button
-              variant="outline"
+              variant="premium"
               size="sm"
               onClick={onCalculatorOpen}
             >
@@ -93,7 +100,7 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-foreground"
+            className="md:hidden text-foreground ml-auto"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -104,6 +111,15 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
         {isMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 glass backdrop-blur-xl border-t border-border/50">
             <div className="container mx-auto px-6 py-6 space-y-4">
+              <button
+                onClick={() => {
+                  window.location.href = '/';
+                  setIsMenuOpen(false);
+                }}
+                className="block w-full text-left text-foreground hover:text-accent transition-colors py-2"
+              >
+                Home
+              </button>
               <button
                 onClick={() => scrollToSection('services')}
                 className="block w-full text-left text-foreground hover:text-accent transition-colors py-2"

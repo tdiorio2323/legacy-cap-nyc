@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowRight, DollarSign, Clock, Shield, Calculator } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,12 +11,25 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
+  const [offset, setOffset] = useState(0);
   const [formData, setFormData] = useState({
     businessName: '',
     monthlyRevenue: '',
     fundingAmount: '',
     phone: ''
   });
+
+  useEffect(() => {
+    const header = document.querySelector('header');
+    if (header) {
+      setOffset(header.offsetHeight);
+      const resizeObserver = new ResizeObserver(() =>
+        setOffset(header.offsetHeight)
+      );
+      resizeObserver.observe(header);
+      return () => resizeObserver.disconnect();
+    }
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,7 +38,11 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center overflow-hidden transition-all duration-300"
+      style={{ paddingTop: offset }}
+    >
       {/* Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center"
@@ -69,9 +86,9 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
+              <Button
                 variant="premium"
-                size="lg" 
+                size="lg"
                 className="text-lg px-8 py-6"
                 onClick={() => document.getElementById('apply-form')?.scrollIntoView({ behavior: 'smooth' })}
               >
@@ -79,7 +96,7 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <Button
-                variant="outline"
+                variant="premium"
                 size="lg"
                 className="text-lg px-8 py-6"
                 onClick={onCalculatorOpen}

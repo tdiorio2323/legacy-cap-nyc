@@ -59,8 +59,9 @@ const ProcessSection = () => {
               
               <div className="card-premium p-8 text-center hover:shadow-gold transition-all duration-300 relative z-10">
                 {/* Step Number */}
-                <div className="text-6xl font-display font-bold text-accent/20 mb-4">
-                  {step.number}
+                <div className="text-6xl font-display font-bold text-gradient-gold mb-4 relative">
+                  <div className="absolute inset-0 animate-shimmer opacity-100"></div>
+                  <span className="relative z-10">{step.number}</span>
                 </div>
                 
                 {/* Icon */}

@@ -131,10 +131,9 @@ const TestimonialsSection = () => {
           {/* Navigation */}
           <div className="flex items-center justify-between">
             <Button
-              variant="outline"
+              variant="premium"
               size="sm"
               onClick={prevTestimonial}
-              className="btn-outline-premium"
             >
               <ChevronLeft className="w-4 h-4" />
             </Button>
@@ -155,10 +154,9 @@ const TestimonialsSection = () => {
             </div>
 
             <Button
-              variant="outline"
+              variant="premium"
               size="sm"
               onClick={nextTestimonial}
-              className="btn-outline-premium"
             >
               <ChevronRight className="w-4 h-4" />
             </Button>
