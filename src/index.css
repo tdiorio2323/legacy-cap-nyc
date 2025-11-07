@@ -25,7 +25,7 @@
     --muted: 0 0% 10%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 45 72% 51%;
+    --accent: 45 64% 52%;
     --accent-foreground: 0 0% 3%;
 
     --destructive: 0 84% 60%;
@@ -33,30 +33,30 @@
 
     --border: 0 0% 15%;
     --input: 0 0% 8%;
-    --ring: 45 72% 51%;
+    --ring: 45 64% 52%;
 
-    /* Premium gold palette - Shiny Lighter Gold */
-    --gold-primary: 45 90% 65%;
-    --gold-dark: 45 85% 55%;
-    --gold-light: 45 95% 75%;
-    --gold-muted: 45 50% 25%;
+    /* Classic gold palette (#D4AF37) */
+    --gold-primary: 45 64% 52%;
+    --gold-dark: 45 60% 45%;
+    --gold-light: 45 70% 65%;
+    --gold-muted: 45 40% 35%;
 
-    /* Premium gradients - Lighter Shiny Gold */
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 3%), hsl(0 0% 8%));
-    --gradient-gold: linear-gradient(135deg, hsl(45 95% 70%), hsl(45 85% 60%));
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 3%) 0%, hsl(45 72% 51% / 0.1) 50%, hsl(0 0% 3%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 6%) 0%, hsl(0 0% 9%) 100%);
-    --gradient-gold-shimmer: linear-gradient(45deg, transparent 30%, hsl(45 95% 75% / 0.4) 50%, transparent 70%);
-    
-    /* Glass morphism */
-    --glass-bg: hsla(0, 0%, 100%, 0.05);
+    /* Refined luxury gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 0%), hsl(0 0% 4%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 64% 52%), hsl(45 60% 48%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(45 64% 52% / 0.05) 50%, hsl(0 0% 0%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 2%) 0%, hsl(0 0% 5%) 100%);
+    --gradient-gold-shimmer: linear-gradient(45deg, transparent 30%, hsl(45 64% 52% / 0.15) 50%, transparent 70%);
+
+    /* Refined glass morphism */
+    --glass-bg: hsla(0, 0%, 100%, 0.04);
     --glass-border: hsla(0, 0%, 100%, 0.1);
-    --glass-shadow: 0 8px 32px 0 hsla(0, 0%, 0%, 0.37);
-    
-    /* Premium shadows - Lighter Gold Glow */
-    --shadow-premium: 0 20px 25px -5px hsla(0, 0%, 0%, 0.5), 0 10px 10px -5px hsla(0, 0%, 0%, 0.04);
-    --shadow-gold: 0 10px 30px -10px hsla(45, 90%, 65%, 0.5);
-    --shadow-gold-glow: 0 0 25px hsla(45, 95%, 70%, 0.4), 0 0 50px hsla(45, 90%, 65%, 0.3);
+    --glass-shadow: 0 8px 32px 0 hsla(0, 0%, 0%, 0.6);
+
+    /* Subtle luxury shadows */
+    --shadow-premium: 0 20px 25px -5px hsla(0, 0%, 0%, 0.7), 0 10px 10px -5px hsla(0, 0%, 0%, 0.1);
+    --shadow-gold: 0 10px 40px -15px hsla(45, 64%, 52%, 0.25);
+    --shadow-gold-glow: 0 0 60px -20px hsla(45, 64%, 52%, 0.2);
     
     /* Typography scale */
     --font-display: 'Playfair Display', serif;
@@ -131,19 +131,28 @@
 }
 
 @layer components {
-  /* Premium button variants */
+  /* Luxury button variants */
   .btn-hero {
     background: var(--gradient-gold);
-    @apply text-white font-semibold px-8 py-4 rounded-lg shadow-[var(--shadow-gold)] hover:shadow-[var(--shadow-gold-glow)] transition-all duration-300 hover:scale-[1.02] hover:brightness-110;
+    @apply text-black font-medium px-8 py-4 rounded-lg shadow-[var(--shadow-gold)] hover:shadow-[var(--shadow-gold-glow)] transition-all duration-300 hover:scale-[1.02] tracking-luxury;
   }
 
   .btn-outline-premium {
-    @apply border-2 border-accent text-accent bg-transparent font-semibold px-8 py-4 rounded-lg hover:bg-accent hover:text-white hover:shadow-[var(--shadow-gold)] transition-all duration-300;
+    @apply border border-accent/30 text-accent bg-transparent font-medium px-8 py-4 rounded-lg hover:bg-accent/10 hover:border-accent/50 hover:shadow-[var(--shadow-gold)] transition-all duration-300 tracking-luxury;
   }
 
   .btn-form {
     background: var(--gradient-gold);
-    @apply text-white font-medium px-6 py-3 rounded-lg shadow-[var(--shadow-gold)] hover:shadow-[var(--shadow-gold-glow)] transition-all duration-300 hover:scale-[1.02];
+    @apply text-black font-medium px-6 py-3 rounded-lg shadow-[var(--shadow-gold)] hover:shadow-[var(--shadow-gold-glow)] transition-all duration-300 hover:scale-[1.02] tracking-luxury;
+  }
+
+  /* Luxury utility classes */
+  .btn-luxury {
+    @apply bg-black text-accent border border-accent/30 px-8 py-4 rounded-lg hover:bg-accent/10 hover:scale-[1.02] transition-all duration-300 tracking-luxury font-medium;
+  }
+
+  .btn-luxury-filled {
+    @apply bg-accent/90 text-black px-8 py-4 rounded-lg hover:bg-accent hover:scale-[1.02] transition-all duration-300 font-medium tracking-luxury;
   }
   
   /* Glass morphism effects */
@@ -153,11 +162,41 @@
     border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
   }
-  
-  /* Premium card styles */
+
+  /* Luxury card styles */
   .card-premium {
-    background: var(--gradient-card);
-    @apply rounded-xl border border-border/50 shadow-[var(--shadow-premium)] backdrop-blur-sm;
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    box-shadow: 0 0 40px -15px rgba(255, 255, 255, 0.15);
+  }
+
+  .glass-card {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 3rem;
+    box-shadow: 0 0 40px -15px rgba(255, 255, 255, 0.15);
+  }
+
+  .glass-input {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    transition: all 0.3s;
+  }
+
+  .glass-input:focus {
+    border-bottom-color: hsl(var(--accent) / 0.5);
+    outline: none;
   }
   
   /* Text gradients */
@@ -166,6 +205,15 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Luxury typography */
+  .heading-luxury {
+    @apply tracking-tight font-light leading-tight;
+  }
+
+  .section-luxury {
+    @apply py-32 bg-black relative overflow-hidden;
   }
   
   /* Form styling */
@@ -177,15 +225,16 @@
     @apply bg-background/50 border-0 border-b-2 border-muted-foreground/30 text-foreground rounded-none px-0 py-3 focus:border-accent focus:ring-0 transition-colors duration-300;
   }
   
-  /* Animations */
+  /* Subtle animations */
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-  
+
   .animate-shimmer {
     background: var(--gradient-gold-shimmer);
     background-size: 200% 100%;
     animation: shimmer 3s ease-in-out infinite;
+    opacity: 0.1;
   }
   
   @keyframes float {

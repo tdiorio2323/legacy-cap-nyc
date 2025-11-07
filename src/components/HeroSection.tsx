@@ -44,52 +44,52 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
       style={{ paddingTop: offset }}
     >
       {/* Background */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
         <div className="absolute inset-0 bg-gradient-hero"></div>
-        <div className="absolute inset-0 animate-shimmer opacity-30"></div>
+        <div className="absolute inset-0 animate-shimmer"></div>
       </div>
 
-      <div className="container mx-auto px-6 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-6 py-24 lg:py-32 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Main Content */}
-          <div className="space-y-8 animate-fadeIn">
+          <div className="space-y-12 animate-fadeIn">
             <div>
-              <h1 className="text-5xl lg:text-7xl font-display font-bold leading-tight mb-6">
+              <h1 className="text-6xl lg:text-7xl font-display font-light leading-tight mb-8 tracking-tight">
                 <span className="text-gradient-gold">Premium</span> Business
                 <br />
                 Funding in <span className="text-accent">24 Hours</span>
               </h1>
               <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
-                Skip the banks. Get up to <strong className="text-foreground">$500,000</strong> in working capital 
+                Skip the banks. Get up to <strong className="text-foreground font-medium">$500,000</strong> in working capital
                 with transparent terms, no hidden fees, and same-day approvals.
               </p>
             </div>
 
             {/* Key Benefits */}
-            <div className="flex flex-wrap gap-6">
-              <div className="flex items-center space-x-2">
-                <Clock className="w-5 h-5 text-accent" />
-                <span className="text-sm font-medium">24-Hour Funding</span>
+            <div className="flex flex-wrap gap-8">
+              <div className="flex items-center space-x-3">
+                <Clock className="w-6 h-6 text-accent" />
+                <span className="text-sm font-medium tracking-luxury">24-Hour Funding</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Shield className="w-5 h-5 text-accent" />
-                <span className="text-sm font-medium">No Hidden Fees</span>
+              <div className="flex items-center space-x-3">
+                <Shield className="w-6 h-6 text-accent" />
+                <span className="text-sm font-medium tracking-luxury">No Hidden Fees</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <DollarSign className="w-5 h-5 text-accent" />
-                <span className="text-sm font-medium">Up to $500K</span>
+              <div className="flex items-center space-x-3">
+                <DollarSign className="w-6 h-6 text-accent" />
+                <span className="text-sm font-medium tracking-luxury">Up to $500K</span>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-6">
               <Button
                 variant="premium"
                 size="lg"
-                className="text-lg px-8 py-6"
+                className="text-base px-10 py-7"
                 onClick={() => document.getElementById('apply-form')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Get Funded Now
@@ -98,7 +98,7 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
               <Button
                 variant="premium"
                 size="lg"
-                className="text-lg px-8 py-6"
+                className="text-base px-10 py-7"
                 onClick={onCalculatorOpen}
               >
                 <Calculator className="w-5 h-5 mr-2" />
@@ -107,38 +107,38 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-accent/20">
+            <div className="grid grid-cols-3 gap-8 pt-12 border-t border-white/10">
               <div className="text-center">
-                <div className="text-3xl lg:text-4xl font-display font-bold text-gradient-gold flex items-center justify-center">
+                <div className="text-4xl lg:text-5xl font-display font-light text-gradient-gold flex items-center justify-center tracking-tight">
                   $2.5B+
                 </div>
-                <div className="text-sm text-muted-foreground">Funded</div>
+                <div className="text-xs text-muted-foreground mt-2 tracking-luxury uppercase">Funded</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl lg:text-4xl font-display font-bold text-gradient-gold flex items-center justify-center">
+                <div className="text-4xl lg:text-5xl font-display font-light text-gradient-gold flex items-center justify-center tracking-tight">
                   15K+
                 </div>
-                <div className="text-sm text-muted-foreground">Businesses</div>
+                <div className="text-xs text-muted-foreground mt-2 tracking-luxury uppercase">Businesses</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl lg:text-4xl font-display font-bold text-gradient-gold flex items-center justify-center">
+                <div className="text-4xl lg:text-5xl font-display font-light text-gradient-gold flex items-center justify-center tracking-tight">
                   24hrs
                 </div>
-                <div className="text-sm text-muted-foreground">Avg. Approval</div>
+                <div className="text-xs text-muted-foreground mt-2 tracking-luxury uppercase">Avg. Approval</div>
               </div>
             </div>
           </div>
 
           {/* Right Column - Application Form */}
-          <div id="apply-form" className="form-premium p-8 rounded-2xl animate-slideUp border border-accent/20">
-            <div className="mb-6">
-              <h3 className="text-2xl font-display font-bold mb-2 text-gradient-gold">Quick Pre-Qualification</h3>
-              <p className="text-muted-foreground">Get approved in minutes, funded in hours</p>
+          <div id="apply-form" className="card-premium p-10 rounded-2xl animate-slideUp">
+            <div className="mb-8">
+              <h3 className="text-2xl font-display font-light mb-3 text-gradient-gold tracking-tight">Quick Pre-Qualification</h3>
+              <p className="text-muted-foreground text-sm">Get approved in minutes, funded in hours</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-7">
               <div>
-                <Label htmlFor="businessName" className="text-sm font-medium mb-2 block">
+                <Label htmlFor="businessName" className="text-xs font-medium mb-3 block tracking-luxury uppercase text-muted-foreground">
                   Business Name
                 </Label>
                 <Input
@@ -146,19 +146,19 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
                   placeholder="Your Business Name"
                   value={formData.businessName}
                   onChange={(e) => setFormData({...formData, businessName: e.target.value})}
-                  className="input-premium"
+                  className="glass-input text-base"
                 />
               </div>
 
               <div>
-                <Label htmlFor="monthlyRevenue" className="text-sm font-medium mb-2 block">
+                <Label htmlFor="monthlyRevenue" className="text-xs font-medium mb-3 block tracking-luxury uppercase text-muted-foreground">
                   Monthly Revenue
                 </Label>
-                <Select 
+                <Select
                   value={formData.monthlyRevenue}
                   onValueChange={(value) => setFormData({...formData, monthlyRevenue: value})}
                 >
-                  <SelectTrigger className="input-premium">
+                  <SelectTrigger className="glass-input text-base">
                     <SelectValue placeholder="Select monthly revenue" />
                   </SelectTrigger>
                   <SelectContent>
@@ -171,14 +171,14 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
               </div>
 
               <div>
-                <Label htmlFor="fundingAmount" className="text-sm font-medium mb-2 block">
+                <Label htmlFor="fundingAmount" className="text-xs font-medium mb-3 block tracking-luxury uppercase text-muted-foreground">
                   Funding Needed
                 </Label>
-                <Select 
+                <Select
                   value={formData.fundingAmount}
                   onValueChange={(value) => setFormData({...formData, fundingAmount: value})}
                 >
-                  <SelectTrigger className="input-premium">
+                  <SelectTrigger className="glass-input text-base">
                     <SelectValue placeholder="How much do you need?" />
                   </SelectTrigger>
                   <SelectContent>
@@ -191,7 +191,7 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
               </div>
 
               <div>
-                <Label htmlFor="phone" className="text-sm font-medium mb-2 block">
+                <Label htmlFor="phone" className="text-xs font-medium mb-3 block tracking-luxury uppercase text-muted-foreground">
                   Phone Number
                 </Label>
                 <Input
@@ -199,16 +199,16 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
                   placeholder="(555) 123-4567"
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  className="input-premium"
+                  className="glass-input text-base"
                 />
               </div>
 
-              <Button type="submit" variant="premium" className="w-full text-lg py-6">
+              <Button type="submit" variant="premium" className="w-full text-base py-7 mt-8">
                 Get Instant Pre-Approval
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
 
-              <p className="text-xs text-muted-foreground text-center">
+              <p className="text-xs text-muted-foreground text-center tracking-luxury">
                 Secure application • No impact on credit score • Same-day decisions
               </p>
             </form>

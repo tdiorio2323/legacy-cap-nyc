@@ -4,8 +4,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary/50 border-t border-border/50">
-      <div className="container mx-auto px-6 py-16">
+    <footer className="bg-black/95 border-t border-white/10">
+      <div className="container mx-auto px-6 py-20">
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
@@ -13,11 +13,11 @@ const Footer = () => {
               <img
                 src="/lcglogo.avif"
                 alt="Legacy Capital NYC logo"
-                className="h-12 w-auto rounded-md shadow-sm"
+                className="h-10 w-auto rounded-md shadow-sm"
               />
               <div>
-                <h3 className="text-xl font-display font-bold text-primary">Legacy Capital</h3>
-                <p className="text-sm text-accent font-medium">NYC</p>
+                <h3 className="text-lg font-display font-semibold text-primary tracking-luxury">Legacy Capital</h3>
+                <p className="text-xs text-accent font-medium tracking-luxury">NYC</p>
               </div>
             </div>
             
@@ -54,46 +54,46 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-display font-semibold mb-6">Services</h4>
+            <h4 className="text-base font-display font-semibold mb-6 tracking-luxury">Services</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Merchant Cash Advance</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Revenue-Based Financing</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Equipment Financing</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Business Line of Credit</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Invoice Factoring</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">SBA Loan Alternative</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Merchant Cash Advance</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Revenue-Based Financing</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Equipment Financing</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Business Line of Credit</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Invoice Factoring</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">SBA Loan Alternative</a></li>
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h4 className="text-lg font-display font-semibold mb-6">Company</h4>
+            <h4 className="text-base font-display font-semibold mb-6 tracking-luxury">Company</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">About Us</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Our Process</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Success Stories</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">FAQ</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Contact</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-accent transition-colors">Careers</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">About Us</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Our Process</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Success Stories</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">FAQ</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Contact</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Careers</a></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border/50 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-sm text-muted-foreground mb-4 md:mb-0">
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="text-sm text-muted-foreground mb-4 md:mb-0 tracking-luxury">
             © {currentYear} Legacy Capital NYC. All rights reserved.
           </div>
-          
+
           <div className="flex space-x-6 text-sm">
-            <a href="#" className="text-muted-foreground hover:text-accent transition-colors">Privacy Policy</a>
-            <a href="#" className="text-muted-foreground hover:text-accent transition-colors">Terms of Service</a>
-            <a href="#" className="text-muted-foreground hover:text-accent transition-colors">Disclosure</a>
+            <a href="#" className="text-muted-foreground hover:text-accent transition-colors tracking-luxury">Privacy Policy</a>
+            <a href="#" className="text-muted-foreground hover:text-accent transition-colors tracking-luxury">Terms of Service</a>
+            <a href="#" className="text-muted-foreground hover:text-accent transition-colors tracking-luxury">Disclosure</a>
           </div>
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-8 pt-6 border-t border-border/50">
+        <div className="mt-8 pt-6 border-t border-white/10">
           <p className="text-xs text-muted-foreground leading-relaxed">
             <strong>Important:</strong> Legacy Capital NYC provides business funding solutions including merchant cash advances and other commercial financing products. 
             These products are not loans and have different terms and conditions. All funding is subject to credit approval and terms may vary. 

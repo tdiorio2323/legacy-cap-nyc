@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Calculator } from 'lucide-react';
+import { Menu, X, Phone, Calculator, Linkedin, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface HeaderProps {
@@ -31,13 +31,13 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
       isScrolled ? 'glass backdrop-blur-xl' : 'bg-background/80 backdrop-blur-sm border-b border-border/20'
     }`}>
       <nav className="container mx-auto px-6 py-4">
-        {/* Logo - Centered at Top (3x larger) */}
-        <div className="flex justify-center mb-6">
+        {/* Logo - Centered at Top */}
+        <div className="flex justify-center mb-8">
           <button onClick={() => window.location.href = '/'} className="group" aria-label="Legacy Capital NYC home">
             <img
               src="/lcglogo.avif"
               alt="Legacy Capital NYC logo"
-              className="h-36 w-auto rounded-md shadow-sm transition-transform duration-200 group-hover:scale-[1.02] cursor-pointer"
+              className="h-32 w-auto rounded-md shadow-sm transition-transform duration-200 group-hover:scale-[1.01] cursor-pointer"
             />
           </button>
         </div>
@@ -48,34 +48,56 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
           <div className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => window.location.href = '/'}
-              className="text-foreground hover:text-accent transition-colors"
+              className="text-foreground hover:text-accent transition-colors text-sm tracking-luxury uppercase"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection('services')}
-              className="text-foreground hover:text-accent transition-colors"
+              className="text-foreground hover:text-accent transition-colors text-sm tracking-luxury uppercase"
             >
               Services
             </button>
             <button
               onClick={() => scrollToSection('process')}
-              className="text-foreground hover:text-accent transition-colors"
+              className="text-foreground hover:text-accent transition-colors text-sm tracking-luxury uppercase"
             >
               Process
             </button>
             <button
               onClick={() => scrollToSection('testimonials')}
-              className="text-foreground hover:text-accent transition-colors"
+              className="text-foreground hover:text-accent transition-colors text-sm tracking-luxury uppercase"
             >
               Reviews
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-foreground hover:text-accent transition-colors"
+              className="text-foreground hover:text-accent transition-colors text-sm tracking-luxury uppercase"
             >
               Contact
             </button>
+
+            {/* Social Links */}
+            <div className="flex items-center space-x-3 ml-4 border-l border-white/10 pl-4">
+              <a
+                href="https://www.linkedin.com/company/legacy-capital-group-inc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg border border-accent flex items-center justify-center text-white hover:bg-accent/10 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.instagram.com/legacycapnyc/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg border border-accent flex items-center justify-center text-white hover:bg-accent/10 transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
           {/* Desktop CTAs - All Gold Filled */}
@@ -109,45 +131,45 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-gradient-gold border-t-2 border-accent shadow-gold">
+          <div className="md:hidden absolute top-full left-0 right-0 backdrop-blur-xl bg-black/90 border-t border-white/10 shadow-gold">
             <div className="container mx-auto px-6 py-6 space-y-4">
               <button
                 onClick={() => {
                   window.location.href = '/';
                   setIsMenuOpen(false);
                 }}
-                className="block w-full text-left text-white font-semibold hover:text-black/80 transition-colors py-3"
+                className="block w-full text-left text-foreground font-medium hover:text-accent transition-colors py-3 tracking-luxury"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection('services')}
-                className="block w-full text-left text-white font-semibold hover:text-black/80 transition-colors py-3"
+                className="block w-full text-left text-foreground font-medium hover:text-accent transition-colors py-3 tracking-luxury"
               >
                 Services
               </button>
               <button
                 onClick={() => scrollToSection('process')}
-                className="block w-full text-left text-white font-semibold hover:text-black/80 transition-colors py-3"
+                className="block w-full text-left text-foreground font-medium hover:text-accent transition-colors py-3 tracking-luxury"
               >
                 Process
               </button>
               <button
                 onClick={() => scrollToSection('testimonials')}
-                className="block w-full text-left text-white font-semibold hover:text-black/80 transition-colors py-3"
+                className="block w-full text-left text-foreground font-medium hover:text-accent transition-colors py-3 tracking-luxury"
               >
                 Reviews
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="block w-full text-left text-white font-semibold hover:text-black/80 transition-colors py-3"
+                className="block w-full text-left text-foreground font-medium hover:text-accent transition-colors py-3 tracking-luxury"
               >
                 Contact
               </button>
-              <div className="pt-4 border-t border-white/30 space-y-3">
+              <div className="pt-4 border-t border-white/10 space-y-3">
                 <Button
-                  variant="outline"
-                  className="w-full bg-white text-black border-white hover:bg-black/10"
+                  variant="premium"
+                  className="w-full"
                   onClick={() => {
                     onCalculatorOpen();
                     setIsMenuOpen(false);
@@ -157,8 +179,8 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
                   Funding Calculator
                 </Button>
                 <Button
-                  variant="outline"
-                  className="w-full bg-white text-black border-white hover:bg-black/10"
+                  variant="premium"
+                  className="w-full"
                   onClick={() => {
                     scrollToSection('hero');
                     setIsMenuOpen(false);

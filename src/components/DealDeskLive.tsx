@@ -57,12 +57,12 @@ const DealDeskLive = () => {
             setIsOpen(true);
             setStep('form');
           }}
-          className="btn-hero px-6 py-6 rounded-full shadow-gold-glow hover:shadow-gold-glow hover:scale-110 transition-all duration-300 group"
+          className="btn-hero px-8 py-6 rounded-full shadow-gold-glow hover:shadow-gold-glow hover:scale-110 transition-all duration-300 group"
         >
-          <MessageSquare className="w-5 h-5 mr-2 group-hover:animate-pulse" />
+          <MessageSquare className="w-6 h-6 mr-3 group-hover:animate-pulse" />
           <div className="text-left">
-            <div className="font-bold">Deal Desk Live</div>
-            <div className="text-xs opacity-90">~{queueTime} min wait</div>
+            <div className="font-bold text-white text-lg tracking-luxury">GET FUNDED</div>
+            <div className="text-xs text-white/80">~{queueTime} min wait</div>
           </div>
         </Button>
 

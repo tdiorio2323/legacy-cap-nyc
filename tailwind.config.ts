@@ -22,6 +22,9 @@ export default {
 				'display': ['Playfair Display', 'serif'],
 				'sans': ['Inter', 'system-ui', 'sans-serif'],
 			},
+			letterSpacing: {
+				'luxury': '0.025em',
+			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-gold': 'var(--gradient-gold)',

@@ -90,18 +90,18 @@ const InstantOfferSimulator = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-secondary/20 to-background">
+    <section className="py-32 bg-black">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <div className="inline-flex items-center bg-accent/10 px-4 py-2 rounded-full mb-6">
             <AlertCircle className="w-4 h-4 text-accent mr-2" />
-            <span className="text-sm font-semibold text-accent">Fully Transparent Pricing</span>
+            <span className="text-xs font-medium text-accent tracking-luxury uppercase">Fully Transparent Pricing</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-display font-bold mb-6">
+          <h2 className="text-5xl lg:text-6xl font-display font-light mb-8 tracking-tight">
             See Your <span className="text-gradient-gold">Real Offer</span> Now
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             No games. No "subject to underwriting" surprises. Move the sliders below and see exactly what you qualify for.
           </p>
         </div>
@@ -109,11 +109,11 @@ const InstantOfferSimulator = () => {
         {/* Main Calculator Grid */}
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Left: Input Controls */}
-          <div className="card-premium p-8 space-y-8">
+          <div className="card-premium p-12 space-y-10">
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <Label className="text-lg font-semibold">Monthly Revenue</Label>
-                <span className="text-2xl font-bold text-accent">{formatCurrency(monthlyRevenue[0])}</span>
+              <div className="flex items-center justify-between mb-6">
+                <Label className="text-sm font-medium tracking-luxury uppercase text-muted-foreground">Monthly Revenue</Label>
+                <span className="text-3xl font-light text-accent tracking-tight">{formatCurrency(monthlyRevenue[0])}</span>
               </div>
               <Slider
                 value={monthlyRevenue}
@@ -123,16 +123,16 @@ const InstantOfferSimulator = () => {
                 step={10000}
                 className="mt-2"
               />
-              <div className="flex justify-between text-xs text-muted-foreground mt-2">
+              <div className="flex justify-between text-xs text-muted-foreground mt-3 tracking-luxury">
                 <span>$50K</span>
                 <span>$500K</span>
               </div>
             </div>
 
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <Label className="text-lg font-semibold">Average Bank Balance</Label>
-                <span className="text-2xl font-bold text-accent">{formatCurrency(avgBankBalance[0])}</span>
+              <div className="flex items-center justify-between mb-6">
+                <Label className="text-sm font-medium tracking-luxury uppercase text-muted-foreground">Average Bank Balance</Label>
+                <span className="text-3xl font-light text-accent tracking-tight">{formatCurrency(avgBankBalance[0])}</span>
               </div>
               <Slider
                 value={avgBankBalance}
@@ -142,16 +142,16 @@ const InstantOfferSimulator = () => {
                 step={5000}
                 className="mt-2"
               />
-              <div className="flex justify-between text-xs text-muted-foreground mt-2">
+              <div className="flex justify-between text-xs text-muted-foreground mt-3 tracking-luxury">
                 <span>$10K</span>
                 <span>$200K</span>
               </div>
             </div>
 
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <Label className="text-lg font-semibold">Card/Digital Receipts</Label>
-                <span className="text-2xl font-bold text-accent">{cardReceiptsPct[0]}%</span>
+              <div className="flex items-center justify-between mb-6">
+                <Label className="text-sm font-medium tracking-luxury uppercase text-muted-foreground">Card/Digital Receipts</Label>
+                <span className="text-3xl font-light text-accent tracking-tight">{cardReceiptsPct[0]}%</span>
               </div>
               <Slider
                 value={cardReceiptsPct}
@@ -161,16 +161,16 @@ const InstantOfferSimulator = () => {
                 step={5}
                 className="mt-2"
               />
-              <div className="flex justify-between text-xs text-muted-foreground mt-2">
+              <div className="flex justify-between text-xs text-muted-foreground mt-3 tracking-luxury">
                 <span>0%</span>
                 <span>100%</span>
               </div>
             </div>
 
             {/* Why These Matter Explainer */}
-            <div className="glass p-4 rounded-lg mt-6">
-              <h4 className="font-semibold text-sm mb-2 text-accent">Why These Numbers Matter</h4>
-              <ul className="text-xs text-muted-foreground space-y-1">
+            <div className="glass p-6 rounded-lg mt-8">
+              <h4 className="font-medium text-xs mb-3 text-accent tracking-luxury uppercase">Why These Numbers Matter</h4>
+              <ul className="text-xs text-muted-foreground space-y-2 leading-relaxed">
                 <li>• Higher revenue = larger advance capacity</li>
                 <li>• Strong balance = lower risk = better rate</li>
                 <li>• Card receipts = easier automated collection</li>
@@ -179,46 +179,46 @@ const InstantOfferSimulator = () => {
           </div>
 
           {/* Right: Offer Results */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             {/* Offer Range Card */}
-            <div className="card-premium p-8 border-2 border-accent/30">
-              <h3 className="text-xl font-semibold mb-6 flex items-center">
-                <DollarSign className="w-6 h-6 text-accent mr-2" />
+            <div className="card-premium p-10 border border-accent/20">
+              <h3 className="text-lg font-medium mb-8 flex items-center tracking-luxury">
+                <DollarSign className="w-6 h-6 text-accent mr-3" />
                 Your Offer Range
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div>
-                  <p className="text-sm text-muted-foreground mb-2">You qualify for</p>
-                  <p className="text-4xl font-display font-bold text-gradient-gold">
+                  <p className="text-xs text-muted-foreground mb-3 tracking-luxury uppercase">You qualify for</p>
+                  <p className="text-5xl font-display font-light text-gradient-gold tracking-tight">
                     {formatCurrency(offer.minOffer)} - {formatCurrency(offer.maxOffer)}
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border/50">
+                <div className="grid grid-cols-2 gap-6 pt-8 border-t border-white/10">
                   <div>
-                    <p className="text-xs text-muted-foreground mb-1">Factor Rate</p>
-                    <p className="text-2xl font-bold">{offer.factorRate.toFixed(2)}</p>
-                    <p className="text-xs text-accent mt-1">
+                    <p className="text-xs text-muted-foreground mb-2 tracking-luxury uppercase">Factor Rate</p>
+                    <p className="text-3xl font-light tracking-tight">{offer.factorRate.toFixed(2)}</p>
+                    <p className="text-xs text-accent mt-2">
                       ~{offer.aprEquivalent}% APR equivalent
                     </p>
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground mb-1">Term Length</p>
-                    <p className="text-2xl font-bold">{offer.termMonths} months</p>
-                    <p className="text-xs text-muted-foreground mt-1">
+                    <p className="text-xs text-muted-foreground mb-2 tracking-luxury uppercase">Term Length</p>
+                    <p className="text-3xl font-light tracking-tight">{offer.termMonths} months</p>
+                    <p className="text-xs text-muted-foreground mt-2">
                       {offer.businessDays} business days
                     </p>
                   </div>
                 </div>
 
-                <div className="glass p-4 rounded-lg">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-semibold flex items-center">
+                <div className="glass p-6 rounded-lg">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-medium flex items-center tracking-luxury uppercase text-muted-foreground">
                       <Calendar className="w-4 h-4 text-accent mr-2" />
                       Daily Remittance
                     </span>
-                    <span className="text-xl font-bold text-accent">
+                    <span className="text-2xl font-light text-accent tracking-tight">
                       {formatCurrency(offer.dailyRemittance)}
                     </span>
                   </div>
@@ -227,13 +227,13 @@ const InstantOfferSimulator = () => {
                   </p>
                 </div>
 
-                <div className="glass p-4 rounded-lg">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-semibold flex items-center">
+                <div className="glass p-6 rounded-lg">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-medium flex items-center tracking-luxury uppercase text-muted-foreground">
                       <TrendingUp className="w-4 h-4 text-accent mr-2" />
                       Total Payback
                     </span>
-                    <span className="text-xl font-bold">
+                    <span className="text-2xl font-light tracking-tight">
                       {formatCurrency(offer.totalPayback)}
                     </span>
                   </div>
@@ -246,7 +246,7 @@ const InstantOfferSimulator = () => {
             </div>
 
             {/* Email/Download CTA */}
-            <div className="card-premium p-6">
+            <div className="card-premium p-8">
               {!emailSubmitted ? (
                 <form onSubmit={handleEmailSubmit}>
                   <h4 className="font-semibold mb-4">Email Me This Offer</h4>
@@ -280,9 +280,9 @@ const InstantOfferSimulator = () => {
             </div>
 
             {/* Transparency Note */}
-            <div className="glass p-4 rounded-lg">
+            <div className="glass p-6 rounded-lg">
               <p className="text-xs text-muted-foreground leading-relaxed">
-                <strong className="text-accent">The Fine Print:</strong> These numbers are real estimates based on thousands of deals.
+                <strong className="text-accent font-medium">The Fine Print:</strong> These numbers are real estimates based on thousands of deals.
                 Final offer subject to bank statement review (takes 30 mins). We don't do "bait and switch."
               </p>
             </div>
