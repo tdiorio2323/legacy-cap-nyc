@@ -14,6 +14,8 @@ const Footer = () => {
                 src="/lcglogo.avif"
                 alt="Legacy Capital NYC logo"
                 className="h-10 w-auto rounded-md shadow-sm"
+                width={40}
+                height={40}
               />
               <div>
                 <h3 className="text-lg font-display font-semibold text-primary tracking-luxury">Legacy Capital</h3>
@@ -29,7 +31,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-accent" />
-                <span className="text-foreground">(212) 555-FUND</span>
+                <span className="text-foreground">347-596-7722</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-accent" />
@@ -43,10 +45,10 @@ const Footer = () => {
 
             {/* Social Links */}
             <div className="flex space-x-4 mt-6">
-              <a href="https://www.linkedin.com/company/legacy-capital-group-inc" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center hover:bg-accent/20 transition-colors">
+              <a href="https://www.linkedin.com/company/legacy-capital-group-inc" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center hover:bg-accent/20 transition-colors" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5 text-accent" />
               </a>
-              <a href="https://www.instagram.com/legacycapnyc/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center hover:bg-accent/20 transition-colors">
+              <a href="https://www.instagram.com/legacycapnyc/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center hover:bg-accent/20 transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5 text-accent" />
               </a>
             </div>
@@ -57,11 +59,11 @@ const Footer = () => {
             <h4 className="text-base font-display font-semibold mb-6 tracking-luxury">Services</h4>
             <ul className="space-y-3">
               <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Merchant Cash Advance</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Revenue-Based Financing</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Equipment Financing</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Business Line of Credit</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Invoice Factoring</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">SBA Loan Alternative</a></li>
+              {/* <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Revenue-Based Financing</a></li> */}
+              {/* <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Equipment Financing</a></li> */}
+              {/* <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Business Line of Credit</a></li> */}
+              {/* <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Invoice Factoring</a></li> */}
+              {/* <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">SBA Loan Alternative</a></li> */}
             </ul>
           </div>
 
@@ -69,12 +71,12 @@ const Footer = () => {
           <div>
             <h4 className="text-base font-display font-semibold mb-6 tracking-luxury">Company</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">About Us</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Our Process</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Success Stories</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">FAQ</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Contact</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Careers</a></li>
+              {/* <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">About Us</a></li> */}
+              <li><a href="#process" className="text-sm text-muted-foreground hover:text-accent transition-colors">Our Process</a></li>
+              <li><a href="#testimonials" className="text-sm text-muted-foreground hover:text-accent transition-colors">Success Stories</a></li>
+              {/* <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">FAQ</a></li> */}
+              <li><a href="#contact" className="text-sm text-muted-foreground hover:text-accent transition-colors">Contact</a></li>
+              {/* <li><a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">Careers</a></li> */}
             </ul>
           </div>
         </div>

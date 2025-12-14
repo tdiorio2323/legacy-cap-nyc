@@ -5,7 +5,12 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useState } from 'react';
 
+import { useToast } from "@/components/ui/use-toast";
+import { submitLead } from "@/lib/supabase";
+
 const ContactSection = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,9 +18,35 @@ const ContactSection = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Contact form submitted:', formData);
+    setIsSubmitting(true);
+
+    const { error } = await submitLead({
+      contact_name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      message: formData.message,
+      lead_type: 'contact'
+    });
+
+    setIsSubmitting(false);
+
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: "Error requesting call",
+        description: "Please try again or call us strictly at 347-596-7722.",
+      });
+      return;
+    }
+
+    toast({
+      title: "Request Received",
+      description: "A funding specialist will contact you shortly.",
+    });
+
+    setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
   return (
@@ -47,7 +78,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">Call Us Now</h4>
-                    <p className="text-2xl font-bold text-accent mb-1">(212) 555-FUND</p>
+                    <p className="text-2xl font-bold text-accent mb-1">347-596-7722</p>
                     <p className="text-sm text-muted-foreground">
                       Speak with a funding specialist immediately
                     </p>
@@ -154,7 +185,7 @@ const ContactSection = () => {
                 </Label>
                 <Input
                   id="phone"
-                  placeholder="(555) 123-4567"
+                  placeholder="(555) 555-5555"
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
                   className="bg-secondary border-border"
@@ -175,8 +206,8 @@ const ContactSection = () => {
                 />
               </div>
 
-              <Button type="submit" className="w-full btn-hero text-lg py-6">
-                Send Message & Get Pre-Qualified
+              <Button type="submit" className="w-full btn-hero text-lg py-6" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending Request...' : 'Send Message & Get Pre-Qualified'}
               </Button>
 
               <p className="text-xs text-muted-foreground text-center">
@@ -197,7 +228,7 @@ const ContactSection = () => {
               Call our 24/7 emergency funding hotline
             </p>
             <p className="text-2xl font-bold text-accent">
-              (212) 555-EMERGENCY
+              347-596-7722
             </p>
           </div>
         </div>

@@ -10,7 +10,12 @@ interface HeroSectionProps {
   onCalculatorOpen: () => void;
 }
 
+import { useToast } from "@/components/ui/use-toast";
+import { submitLead } from "@/lib/supabase";
+
 const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [offset, setOffset] = useState(0);
   const [formData, setFormData] = useState({
     businessName: '',
@@ -31,10 +36,35 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+
+    const { error } = await submitLead({
+      business_name: formData.businessName,
+      monthly_revenue: formData.monthlyRevenue,
+      funding_amount: formData.fundingAmount,
+      phone: formData.phone,
+      lead_type: 'pre_approval'
+    });
+
+    setIsSubmitting(false);
+
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: "Submission Error",
+        description: "Please try again or call us at (347) 596-7722.",
+      });
+      return;
+    }
+
+    toast({
+      title: "Pre-Approval Request Sent",
+      description: "We are reviewing your details and will call you instantly.",
+    });
+
+    setFormData({ businessName: '', monthlyRevenue: '', fundingAmount: '', phone: '' });
   };
 
   return (
@@ -44,10 +74,14 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
       style={{ paddingTop: offset }}
     >
       {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
+      {/* Background */}
+      <div className="absolute inset-0">
+        <img
+          src={heroImage}
+          alt="Legacy Capital NYC Office Background"
+          className="w-full h-full object-cover"
+          fetchPriority="high"
+        />
         <div className="absolute inset-0 bg-gradient-hero"></div>
         <div className="absolute inset-0 animate-shimmer"></div>
       </div>
@@ -196,21 +230,28 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
                 </Label>
                 <Input
                   id="phone"
-                  placeholder="(555) 123-4567"
+                  placeholder="(555) 555-5555"
                   value={formData.phone}
                   onChange={(e) => setFormData({...formData, phone: e.target.value})}
                   className="glass-input text-base"
                 />
               </div>
 
-              <Button type="submit" variant="premium" className="w-full text-base py-7 mt-8">
-                Get Instant Pre-Approval
-                <ArrowRight className="w-5 h-5 ml-2" />
+              <Button type="submit" variant="premium" className="w-full text-base py-7 mt-8" disabled={isSubmitting}>
+                {isSubmitting ? 'Processing...' : 'Get Instant Pre-Approval'}
+                {!isSubmitting && <ArrowRight className="w-5 h-5 ml-2" />}
               </Button>
 
               <p className="text-xs text-muted-foreground text-center tracking-luxury">
                 Secure application • No impact on credit score • Same-day decisions
               </p>
+
+              <div className="flex items-center justify-center gap-4 pt-4 border-t border-white/5 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div className="flex items-center gap-1.5" title="SSL Secure Encryption">
+                  <Shield className="w-3 h-3" />
+                  <span className="text-[10px] uppercase tracking-widest">256-Bit SSL Secure</span>
+                </div>
+              </div>
             </form>
           </div>
         </div>

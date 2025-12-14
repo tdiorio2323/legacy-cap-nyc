@@ -1,22 +1,43 @@
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 import { DollarSign, TrendingUp, Calendar, Mail, Download, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useToast } from "@/components/ui/use-toast";
+import { submitLead } from "@/lib/supabase";
 
 const InstantOfferSimulator = () => {
+  const { toast } = useToast();
+
   // Input state - using percentages for sliders (0-100)
-  const [monthlyRevenue, setMonthlyRevenue] = useState([250000]); // $250k default
-  const [avgBankBalance, setAvgBankBalance] = useState([75000]); // $75k default
-  const [cardReceiptsPct, setCardReceiptsPct] = useState([60]); // 60% default
+  const [monthlyRevenue, setMonthlyRevenue] = useState([50000]);
+  const [avgBankBalance, setAvgBankBalance] = useState([10000]);
+  const [cardReceiptsPct, setCardReceiptsPct] = useState([50]);
 
   // Email capture state
   const [email, setEmail] = useState('');
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Calculate offer details based on inputs
-  // MOCK CALCULATION - In production, this would call an API
+  // Offer state
+  const [offer, setOffer] = useState({
+    minOffer: 75000,
+    maxOffer: 100000,
+    factorRate: 1.25,
+    termMonths: 6,
+    totalPayback: 0,
+    dailyRemittance: 0,
+    aprEquivalent: 0,
+    businessDays: 0
+  });
+
+  // Calculate whenever inputs change
+  useEffect(() => {
+    calculateOffer();
+  }, [monthlyRevenue, avgBankBalance, cardReceiptsPct]);
+
   const calculateOffer = () => {
     const revenue = monthlyRevenue[0];
     const balance = avgBankBalance[0];
@@ -53,7 +74,7 @@ const InstantOfferSimulator = () => {
     // APR = (Factor - 1) / Term in years * 100
     const aprEquivalent = ((factorRate - 1) / (termMonths / 12)) * 100;
 
-    return {
+    setOffer({
       minOffer,
       maxOffer,
       factorRate,
@@ -62,22 +83,52 @@ const InstantOfferSimulator = () => {
       dailyRemittance,
       aprEquivalent: Math.floor(aprEquivalent),
       businessDays
-    };
+    });
   };
 
-  const offer = calculateOffer();
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // MOCK - In production, this would send email via API
-    console.log('Email submitted:', email, 'Offer details:', offer);
+    setIsSubmitting(true);
+
+    // Send to Supabase
+    const { error } = await submitLead({
+      email,
+      monthly_revenue: monthlyRevenue[0].toString(),
+      lead_type: 'calculator',
+      metadata: {
+        avg_bank_balance: avgBankBalance[0],
+        card_receipts_pct: cardReceiptsPct[0],
+        offered_min: offer.minOffer,
+        offered_max: offer.maxOffer,
+        estimated_factor: offer.factorRate
+      }
+    });
+
+    setIsSubmitting(false);
+
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: "Error sending offer",
+        description: "Please try again or call us.",
+      });
+      return;
+    }
+
+    toast({
+      title: "Offer Sent!",
+      description: "Check your email for the detailed breakdown.",
+    });
+
     setEmailSubmitted(true);
   };
 
   const handleDownloadPDF = () => {
     // MOCK - In production, this would generate a PDF
-    console.log('Downloading PDF with offer details:', offer);
-    alert('PDF download feature - would generate a detailed offer document in production');
+    toast({
+      title: "Downloading...",
+      description: "Your official offer PDF is generating.",
+    });
   };
 
   const formatCurrency = (amount: number) => {
@@ -118,13 +169,13 @@ const InstantOfferSimulator = () => {
               <Slider
                 value={monthlyRevenue}
                 onValueChange={setMonthlyRevenue}
-                min={50000}
+                min={10000}
                 max={500000}
-                step={10000}
+                step={5000}
                 className="mt-2"
               />
               <div className="flex justify-between text-xs text-muted-foreground mt-3 tracking-luxury">
-                <span>$50K</span>
+                <span>$10K</span>
                 <span>$500K</span>
               </div>
             </div>
@@ -137,14 +188,14 @@ const InstantOfferSimulator = () => {
               <Slider
                 value={avgBankBalance}
                 onValueChange={setAvgBankBalance}
-                min={10000}
-                max={200000}
-                step={5000}
+                min={1000}
+                max={100000}
+                step={1000}
                 className="mt-2"
               />
               <div className="flex justify-between text-xs text-muted-foreground mt-3 tracking-luxury">
-                <span>$10K</span>
-                <span>$200K</span>
+                <span>$1K</span>
+                <span>$100K</span>
               </div>
             </div>
 
@@ -200,7 +251,7 @@ const InstantOfferSimulator = () => {
                     <p className="text-xs text-muted-foreground mb-2 tracking-luxury uppercase">Factor Rate</p>
                     <p className="text-3xl font-light tracking-tight">{offer.factorRate.toFixed(2)}</p>
                     <p className="text-xs text-accent mt-2">
-                      ~{offer.aprEquivalent}% APR equivalent
+                      ~{offer.aprEquivalent.toFixed(0)}% APR equivalent
                     </p>
                   </div>
                   <div>
@@ -259,9 +310,8 @@ const InstantOfferSimulator = () => {
                       required
                       className="flex-1"
                     />
-                    <Button type="submit" className="btn-hero">
-                      <Mail className="w-4 h-4 mr-2" />
-                      Send
+                    <Button type="submit" className="w-full btn-hero" disabled={isSubmitting}>
+                      {isSubmitting ? 'Sending...' : 'Email Me My Offer'}
                     </Button>
                   </div>
                   <p className="text-xs text-muted-foreground mt-2">

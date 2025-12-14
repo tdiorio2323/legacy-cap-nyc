@@ -6,6 +6,8 @@ import { Check, X, Award, Download, Mail, AlertCircle, TrendingUp } from 'lucide
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useToast } from "@/components/ui/use-toast";
+import { submitLead } from "@/lib/supabase";
 
 // Question schema
 const questions = [
@@ -68,9 +70,13 @@ const MCAReadinessScore = () => {
   const [showEmailForm, setShowEmailForm] = useState(false);
   const [emailSubmitted, setEmailSubmitted] = useState(false);
 
+  /* Imports moved to top of file by previous tool, removing from here */
+
   const { register, handleSubmit, formState: { errors } } = useForm<EmailFormData>({
     resolver: zodResolver(emailSchema),
   });
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleAnswer = (questionId: string, answer: boolean) => {
     setAnswers({ ...answers, [questionId]: answer });
@@ -179,9 +185,38 @@ const MCAReadinessScore = () => {
   const tier = getReadinessTier();
   const actionPlan = getActionPlan();
 
-  const onEmailSubmit = (data: EmailFormData) => {
-    // MOCK - In production, this would send data to API/CRM
-    console.log('Email form submitted:', data, 'Score:', score, 'Answers:', answers);
+  const onEmailSubmit = async (data: EmailFormData) => {
+    setIsSubmitting(true);
+
+    const { error } = await submitLead({
+      contact_name: data.businessName, // Mapping business name to contact/business name
+      business_name: data.businessName,
+      email: data.email,
+      phone: data.phone,
+      lead_type: 'mca_score',
+      metadata: {
+        score,
+        tier: tier.label,
+        answers
+      }
+    });
+
+    setIsSubmitting(false);
+
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: "Error saving results",
+        description: "Please try again.",
+      });
+      return;
+    }
+
+    toast({
+      title: "Score Saved",
+      description: "We've emailed you the action plan.",
+    });
+
     setEmailSubmitted(true);
   };
 
@@ -389,8 +424,8 @@ const MCAReadinessScore = () => {
                         )}
                       </div>
 
-                      <Button type="submit" className="w-full btn-hero">
-                        Send My Action Plan
+                        <Button type="submit" className="w-full btn-hero" disabled={isSubmitting}>
+                          {isSubmitting ? 'Sending...' : 'Send My Action Plan'}
                       </Button>
 
                       <p className="text-xs text-muted-foreground text-center">

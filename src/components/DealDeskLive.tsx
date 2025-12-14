@@ -4,28 +4,14 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from "@/components/ui/use-toast";
+import { submitLead } from "@/lib/supabase";
 
 const DealDeskLive = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState<'button' | 'form' | 'upload' | 'submitted'>('button');
-  const [queueTime, setQueueTime] = useState(11);
   const [businessName, setBusinessName] = useState('');
   const [contactName, setContactName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
-  const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
-
-  // Simulate dynamic queue time
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setQueueTime((prev) => {
-        const change = Math.random() > 0.5 ? 1 : -1;
-        return Math.max(8, Math.min(15, prev + change));
-      });
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     // MOCK - In production, this would upload to server
@@ -36,22 +22,48 @@ const DealDeskLive = () => {
     }
   };
 
-  const handleSubmit = () => {
-    // MOCK - In production, this would send to API/webhook
-    console.log('Deal desk submission:', {
-      businessName,
-      contactName,
-      phone,
-      message,
-      files: uploadedFiles,
-      timestamp: new Date(),
+  /* Imports moved to top of file */
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+
+    // NOTE: File upload requires Supabase Storage setup. 
+    // For now we just send the metadata and list of filenames.
+    const { error } = await submitLead({
+      contact_name: contactName,
+      business_name: businessName,
+      phone: phone,
+      message: message,
+      lead_type: 'deal_desk',
+      metadata: {
+        file_names: uploadedFiles
+      }
     });
+
+    setIsSubmitting(false);
+
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: "Submission Error",
+        description: "Please try again.",
+      });
+      return;
+    }
+
+    toast({
+      title: "Deal Submitted",
+      description: `We'll call ${phone} shortly.`,
+    });
+
     setStep('submitted');
   };
 
   if (step === 'button') {
     return (
-      <div className="fixed bottom-6 right-6 z-50 animate-fadeIn">
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] animate-fadeIn">
         <Button
           onClick={() => {
             setIsOpen(true);
@@ -62,7 +74,6 @@ const DealDeskLive = () => {
           <MessageSquare className="w-6 h-6 mr-3 group-hover:animate-pulse" />
           <div className="text-left">
             <div className="font-bold text-white text-lg tracking-luxury">GET FUNDED</div>
-            <div className="text-xs text-white/80">~{queueTime} min wait</div>
           </div>
         </Button>
 
@@ -77,7 +88,7 @@ const DealDeskLive = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="w-full max-w-2xl card-premium p-8 relative animate-slideUp">
+      <div className="w-full max-w-2xl card-premium p-8 relative animate-slideUp max-h-[85vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl">
         <button
           onClick={() => {
             setIsOpen(false);
@@ -101,19 +112,7 @@ const DealDeskLive = () => {
             </div>
 
             {/* Queue Time Banner */}
-            <div className="glass p-4 rounded-lg mb-6 flex items-center justify-between">
-              <div className="flex items-center">
-                <Clock className="w-5 h-5 text-accent mr-3" />
-                <div>
-                  <p className="font-semibold">Current Queue Time</p>
-                  <p className="text-sm text-muted-foreground">Estimated response</p>
-                </div>
-              </div>
-              <div className="text-right">
-                <p className="text-3xl font-bold text-accent">~{queueTime} min</p>
-                <p className="text-xs text-muted-foreground">3 deals ahead of you</p>
-              </div>
-            </div>
+            {/* Queue Time Banner Removed */}
 
             {/* Form */}
             <div className="space-y-4 mb-6">
@@ -258,8 +257,8 @@ const DealDeskLive = () => {
               <Button onClick={() => setStep('form')} variant="premium">
                 Back
               </Button>
-              <Button onClick={handleSubmit} className="flex-1 btn-hero">
-                Submit to Deal Desk
+              <Button onClick={handleSubmit} className="flex-1 btn-hero" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : 'Submit to Deal Desk'}
               </Button>
             </div>
           </div>
@@ -273,7 +272,7 @@ const DealDeskLive = () => {
 
             <h2 className="text-3xl font-display font-bold mb-3">You're in the Queue!</h2>
             <p className="text-xl text-muted-foreground mb-8">
-              We'll call {contactName} at {phone} within {queueTime} minutes
+              We'll call {contactName} at {phone} shortly.
             </p>
 
             <div className="glass p-6 rounded-lg mb-8 max-w-md mx-auto">

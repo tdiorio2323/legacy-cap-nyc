@@ -49,10 +49,11 @@ const FundingCalculator = ({ isOpen, onClose }: FundingCalculatorProps) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="w-full max-w-2xl card-premium p-8 relative animate-fadeIn">
+      <div className="w-full max-w-2xl card-premium p-8 relative animate-fadeIn my-8 max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+          className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors p-2"
+          aria-label="Close calculator"
         >
           <X size={24} />
         </button>
