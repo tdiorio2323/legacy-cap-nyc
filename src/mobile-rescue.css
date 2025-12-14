@@ -1,0 +1,57 @@
+@media (max-width: 768px) {
+  /* 1. Clean Luxury Background (Removes muddy image) */
+  .hero-bg-wrapper, .hero-bg-overlay, #hero .absolute.inset-0 img {
+    display: none !important;
+  }
+  
+  #hero {
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%) !important;
+  }
+
+  /* 2. Hero Typography Fixes */
+  body #hero h1 {
+    font-size: 2.2rem !important; /* Scale down headline */
+    line-height: 1.2 !important;
+  }
+  
+  body #hero p {
+    font-size: 1rem !important;
+    max-width: 100% !important;
+    color: #e0e0e0 !important; /* Brighter grey for contrast */
+  }
+
+  /* 3. Hide Secondary Buttons to reduce clutter */
+  body #hero button:nth-of-type(2) {
+    display: none !important; 
+  }
+  
+  /* Hide the deal desk button on hero */
+  body:has(#hero:hover) .fixed.z-\[60\] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* 4. Fix the Form Visibility */
+  body #apply-form {
+    background: rgba(5, 5, 5, 0.95) !important; /* Almost solid black */
+    backdrop-filter: none !important; /* Remove blur for performance */
+    border: 1px solid rgba(191, 149, 63, 0.3) !important; /* Keep gold border */
+    margin-top: 2rem !important;
+    padding: 1.5rem !important;
+  }
+
+  /* 5. Compact Input Fields */
+  body #apply-form input, body #apply-form select, body #apply-form button {
+    height: 55px !important; /* Slightly larger for touch targets */
+    font-size: 16px !important; /* Prevents auto-zoom on iPhone */
+  }
+
+  /* 6. Fix Trust Indicators */
+  .trust-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+}

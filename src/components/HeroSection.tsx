@@ -261,3 +261,4 @@ const HeroSection = ({ onCalculatorOpen }: HeroSectionProps) => {
 };
 
 export default HeroSection;
+
