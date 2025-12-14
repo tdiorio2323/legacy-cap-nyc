@@ -63,7 +63,7 @@ const DealDeskLive = () => {
 
   if (step === 'button') {
     return (
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] animate-fadeIn">
+      <div className="hidden md:block fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[60] animate-fadeIn">
         <Button
           onClick={() => {
             setIsOpen(true);
