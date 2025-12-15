@@ -38,6 +38,7 @@ npm run audit
 - **State Management**: TanStack Query (React Query) for server state
 - **Forms**: React Hook Form with Zod validation
 - **UI Components**: Radix UI primitives via shadcn/ui
+- **Backend**: Supabase (optional - app functions without credentials via mock mode)
 
 ### Project Structure
 - `src/App.tsx` - Root component with providers (QueryClient, TooltipProvider, BrowserRouter)
@@ -46,6 +47,7 @@ npm run audit
 - `src/components/ui/` - Reusable shadcn/ui components
 - `src/hooks/` - Custom React hooks
 - `src/lib/utils.ts` - Utility functions (includes `cn` for className merging)
+- `src/lib/supabase.ts` - Supabase client and lead management utilities
 
 ### Application Flow
 The main Index page (`src/pages/Index.tsx`) is a single-page layout composed of:
@@ -82,6 +84,35 @@ This allows for more flexible development but be mindful of potential type safet
 - Component tagging is enabled in development mode via lovable-tagger
 - All routes should be added above the catch-all "*" route in App.tsx
 - This project was originally created with Lovable and syncs with their platform
+
+### Environment Configuration
+Create a `.env` file based on `.env.example` for Supabase integration:
+```bash
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+The app gracefully handles missing Supabase credentials by:
+- Returning `null` for the Supabase client if credentials are missing (src/lib/supabase.ts:9-11)
+- Mocking lead submissions with console logs when client is unavailable (src/lib/supabase.ts:30-35)
+
+### Lead Management System
+The application captures leads through multiple touchpoints with distinct types:
+- `contact` - General contact form submissions
+- `pre_approval` - Pre-qualification requests
+- `calculator` - Funding calculator interactions
+- `deal_desk` - Deal Desk Live chat submissions
+- `mca_score` - MCA Readiness Score assessments
+
+All leads flow through `submitLead()` in src/lib/supabase.ts which validates data and stores it in the `leads` table.
+
+### Build Optimization
+The production build uses manual code splitting (vite.config.ts:24-29):
+- `vendor` chunk: React core libraries
+- `ui` chunk: Radix UI components
+- `animations` chunk: Framer Motion and Lucide icons
+
+This optimization reduces initial bundle size and improves caching.
 
 ## Custom Tools
 

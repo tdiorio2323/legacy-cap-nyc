@@ -1,12 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Calculator, Linkedin, Instagram } from 'lucide-react';
+import { Menu, X, Phone, Linkedin, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-interface HeaderProps {
-  onCalculatorOpen: () => void;
-}
-
-const Header = ({ onCalculatorOpen }: HeaderProps) => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -107,14 +103,6 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
             <Button
               variant="premium"
               size="sm"
-              onClick={onCalculatorOpen}
-            >
-              <Calculator className="w-4 h-4 mr-2" />
-              Calculator
-            </Button>
-            <Button
-              variant="premium"
-              size="sm"
               onClick={() => {
                 const element = document.getElementById('hero');
                 element?.scrollIntoView({ behavior: 'smooth' });
@@ -174,17 +162,6 @@ const Header = ({ onCalculatorOpen }: HeaderProps) => {
                 Contact
               </a>
               <div className="pt-4 border-t border-white/10 space-y-3">
-                <Button
-                  variant="premium"
-                  className="w-full"
-                  onClick={() => {
-                    onCalculatorOpen();
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  <Calculator className="w-4 h-4 mr-2" />
-                  Funding Calculator
-                </Button>
                 <Button
                   variant="premium"
                   className="w-full"

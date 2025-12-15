@@ -17,7 +17,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header onCalculatorOpen={() => setIsCalculatorOpen(true)} />
+      <Header />
       <HeroSection onCalculatorOpen={() => setIsCalculatorOpen(true)} />
 
       {/* NEW: Instant Offer Simulator - High Priority Feature */}
