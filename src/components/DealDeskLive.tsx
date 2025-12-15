@@ -12,6 +12,11 @@ const DealDeskLive = () => {
   const [step, setStep] = useState<'button' | 'form' | 'upload' | 'submitted'>('button');
   const [businessName, setBusinessName] = useState('');
   const [contactName, setContactName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
+  const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     // MOCK - In production, this would upload to server
@@ -21,10 +26,6 @@ const DealDeskLive = () => {
       setUploadedFiles([...uploadedFiles, ...fileNames]);
     }
   };
-
-  /* Imports moved to top of file */
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
